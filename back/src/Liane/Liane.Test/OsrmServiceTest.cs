@@ -92,6 +92,55 @@ namespace Liane.Test
 
 
         [Test]
+        public async Task ShouldGetRouteFromMendeToFloracBy()
+        {
+            //RamponOrCrouzetOrCocuresOrSaintEtienneDuValdonnez
+            var route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.LeCrouzet, Fixtures.Rampon, Fixtures.Florac), overview: "false");  
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-leCrouzet-rampon-florac.json", route);
+            
+            // route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.LeCrouzet, Fixtures.Florac), overview: "false");
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-leCrouzet-florac.json", route);
+
+            // route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.Cocures, Fixtures.Florac), overview: "false");
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-cocures-florac.json", route);
+
+            // route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.Cocures, Fixtures.Rampon, Fixtures.Florac), overview: "false");
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-cocures-rampon-florac.json", route);
+             
+            // route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.LeCrouzet, Fixtures.Rampon, Fixtures.Cocures, Fixtures.Florac),
+            //     overview: "false");
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-leCrouzet-rampon-cocures-florac.json", route);
+            
+            // route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.LeCrouzet, Fixtures.Cocures, Fixtures.Florac), overview: "false");
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-leCrouzet-cocures-florac.json", route);
+            
+            // route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.Cocures, Fixtures.LeCrouzet, Fixtures.Florac), overview: "false");
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-cocures-leCrouzet-florac.json", route);
+            
+            // route  = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.Rampon, Fixtures.LeCrouzet, Fixtures.Florac), overview: "false");
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-rampon-leCrouzet-florac.json", route);
+            
+            // route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.LeCrouzet, Fixtures.Cocures,  Fixtures.Rampon, Fixtures.Florac), overview: "false");
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-leCrouzet-cocures-rampon-florac.json", route);
+           
+            // route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.Cocures, Fixtures.LeCrouzet, Fixtures.Rampon, Fixtures.Florac), overview: "false");
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-cocures-leCrouzet-rampon-florac.json", route);
+           
+            // route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.Rampon, Fixtures.LeCrouzet, Fixtures.Cocures, Fixtures.Florac), overview: "false");
+            // AssertJson.AreEqual("mende-saintEtienneDuValdonnez-rampon-leCrouzet-cocures-florac.json", route);
+
+            route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.Cocures, Fixtures.Rampon, Fixtures.LeCrouzet, Fixtures.Florac), overview: "false");
+            AssertJson.AreEqual("mende-saintEtienneDuValdonnez-cocures-rampon-leCrouzet-florac.json", route);
+
+            route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.Rampon, Fixtures.Florac), overview: "false");
+            AssertJson.AreEqual("mende-saintEtienneDuValdonnez-rampon-florac.json", route);
+
+            route = await tested.Route(ImmutableList.Create(Fixtures.Mende, Fixtures.SaintEtienneDuValdonnez, Fixtures.Florac), overview: "false");
+            AssertJson.AreEqual("mende-saintEtienneDuValdonnez-florac.json", route);
+
+        }
+
+        [Test]
         public async Task ShouldGetRouteWithAnnotations()
         {
             var result = await tested.Route(coordinates, annotations: "true");

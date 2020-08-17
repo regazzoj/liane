@@ -14,5 +14,6 @@ namespace Liane.Test
         public static readonly LatLng Prades = new LatLng(44.35107686706473,3.459664135275373);
         public static readonly LatLng Cocures = new LatLng(44.34718334543894,3.618854797141151);
         public static readonly LatLng Rampon = new LatLng(44.355594731781366,3.656352079169509);
+        public static readonly LatLng SaintEtienneDuValdonnez = new LatLng(44.448720325294595,3.558578622259474);
     }
 }
